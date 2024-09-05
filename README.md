@@ -47,9 +47,10 @@ To get started with ShopRight, follow these steps:
 
 ### 1. Clone the repository
 
-```bash
+```
 git clone https://github.com/yourusername/shopright.git
 cd shopright
+```
 
 ### 2. Create a virtual environment (optional but recommended)
 ```
