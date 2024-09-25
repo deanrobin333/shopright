@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+<!-- wp:paragraph -->
+<p>🚀 Introducing ShopRight: "Shop Smart, Save Big" 🛍️<br>📌 Project Purpose:<br>ShopRight is a web application designed to help users create shopping lists, track purchased items, and manage expenses through simple cost analysis. The aim is to provide users with a seamless way to save money and manage their finances more effectively.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>👥 Team Members:<br>This project is led solely by me, Dean Robin Otsyeno. I am responsible for every aspect, including management, design, and development.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>🛠️ Technologies:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Frontend: HTML5, CSS3, JavaScript<br>Backend: Flask (chosen for flexibility) and SQLAlchemy (MySQL as the database)<br>Web Services: Nginx on Digital Ocean</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>🎯 Target Audience:<br>ShopRight is created for professionals, freelancers, and creatives who want to demonstrate their full range of software engineering skills. It is designed to be universally accessible, enabling users to showcase their engineering capabilities quickly and effectively.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>🔍 Personal Focus:<br>My role involved everything from architectural design to database management and creating an intuitive user interface. I’ve also led the testing and deployment phases to ensure a smooth user experience.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>🌟 My Journey: Why I Chose to Build ShopRight<br>The inspiration for ShopRight came from my personal experiences juggling multiple side projects, balancing expenses, and managing deadlines. As someone who grew up in a community where saving mattered, I often watched my parents try to maximize every shopping trip. That memory stuck with me.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>It wasn’t just about being frugal—it was about making informed decisions. I realized the importance of having a structured way to track purchases and expenses, and as I began learning software engineering, I saw an opportunity to create a solution for this. ShopRight reflects this personal journey and my passion for building tools that help users manage their finances and maximize value.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>🏆 What I’ve Accomplished with ShopRight:<br>Data Flow &amp; Architecture:<br>The architecture is built around Flask for the backend and SQLAlchemy for managing the MySQL database. Here's a brief overview of the data flow:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The frontend communicates with the Flask backend through API calls.<br>The backend processes these requests and interacts with the MySQL database for data storage and retrieval.<br>Results are returned to the user, allowing them to manage their shopping lists and expenses in real-time.<br>Technology Choices:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Backend: Flask was chosen for its flexibility and control over the development process. Given that this was a small-to-medium-sized project, Flask's lightweight nature made it an ideal fit over something like Django, which offers many built-in features that weren’t needed.<br>Database: MySQL was selected for its efficiency with read-heavy operations, which is crucial for handling user-generated data in ShopRight.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Key Features:<br>Shopping List Creation: Users can easily create, edit, and delete shopping lists.<br>Cost Tracking: The app calculates total expenses, helping users stick to their budgets.<br>Real-Time Updates: All updates happen in real-time, ensuring a smooth, responsive user experience.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>🧠 My Most Difficult Technical Challenge<br>One of the most significant challenges I faced was implementing real-time updates in ShopRight. Initially, the app was fully functional but required users to manually refresh the page to see updated data, which was not ideal for a seamless user experience.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Situation:<br>When building the backend with Flask, I realized that dynamically updating the shopping lists and cost totals on the frontend was crucial for a better user experience. However, Flask, being a synchronous framework, does not natively support real-time updates like some other technologies.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Task:<br>I needed to integrate real-time updates so users could see changes as they happened, without needing to refresh the page.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Action:<br>To tackle this, I implemented AJAX (Asynchronous JavaScript and XML) on the frontend. This allowed the app to send requests to the Flask server asynchronously. When users added, edited, or deleted items from their shopping lists, an AJAX call would trigger an update, fetching the latest data without refreshing the entire page.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Result:<br>This solution worked seamlessly. The app now updates in real-time, ensuring that users can see their changes immediately, improving the overall user experience. The challenge was not just technical, but it required me to re-think how data flowed between the frontend and backend.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>🎓 What I’ve Learned<br>This project has been a significant learning experience, both technically and personally:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Technical Takeaways: I gained a deeper understanding of building real-time applications and solidified my backend knowledge. Additionally, learning how to efficiently use AJAX with Flask taught me a lot about asynchronous programming.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Personal Insights: I learned the importance of simplifying complex problems. The real-time updates issue showed me that sometimes, the solution doesn’t need to be overly complicated—it just needs to work for the user.<br>Future Engineering Path: This project confirmed my passion for backend development and problem-solving, pushing me to explore more efficient ways of managing data and improving user experiences.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>👋 About Me<br>I am Dean Robin Otsyeno, a passionate software engineer with a focus on backend development and creating intuitive user experiences.<br>Check out ShopRight and feel free to connect with me on LinkedIn!</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>🔗 GitHub: <a href="https://github.com/deanrobin333/shopright">ShopRight GitHub Repository</a><br>🔗 Deployed Project: <a href="http://shopright.dynofin.com:5000/">ShopRight Live</a><br>🔗 Twitter: <a href="https://x.com/deanrobin333/status/1838764174991655147">Dean Robin Otsyeno</a></p>
+<!-- /wp:paragraph -->
+
+{% endblock %}

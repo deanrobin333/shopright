@@ -1,0 +1,5 @@
+*.swp
+a.out
+*.gch
+__pycache__/
+
