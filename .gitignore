@@ -2,4 +2,4 @@
 a.out
 *.gch
 __pycache__/
-
+.env
