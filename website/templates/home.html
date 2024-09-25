@@ -2,7 +2,25 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+<!-- Displaying items-->
+<h1 align="center">Items</h1>
+<ul class="list-group list-group-flush" id="items">
+  {% for item in user.items %}
+  <li class="list-group-item">{{ item.data }}
+    <button type="button" class="close" onClick="deleteItem({{ item.id }})">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </li>
+  {% endfor %}
 
-
+</ul>
+<!-- adding items -->
+<form method="POST">
+    <textarea name="item" id="item" class="form-control"></textarea>
+    <br />
+    <div align="center">
+      <button type="submit" class="btn btn-primary">Add Item</button>
+    </div>
+</form>
 
 {% endblock %}
