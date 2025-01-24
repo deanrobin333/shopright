@@ -64,6 +64,9 @@ source venv/bin/activate  # For Windows use `venv\Scripts\activate`
 ### 4. Set up environment variables
 Create a .env file in the root directory and add any necessary environment variables
 
+- have the variable `SECRET_KEY='some random jumbled text'
+    - replace "some random jumbled text" with your own jumbled text.
+
 ### 5. Run the application
 `flask run`
 
