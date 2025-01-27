@@ -1,53 +1,87 @@
 {% extends 'base.html' %}
-{% block title %}Sign up{% endblock %}
+{% block title %}Sign Up{% endblock %}
 
 {% block content %}
+<!-- Main container for centering the form -->
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4" style="width: 450px; border-radius: 20px;">
+        <div class="card-body">
+            <!-- Card Title -->
+            <h3 class="text-center text-primary mb-4"><strong>Create Your Account</strong></h3>
 
-<form method="POST">
-    <h3 align="center">Sign Up</h3>
-    <div class="mb-3">
-      <label for="email" class="form-label">Email Address</label>
-      <input
-        type="email"
-        class="form-control"
-        id="email"
-        name="email"
-        placeholder="Enter email"
-      />
+            <!-- Form Start -->
+            <form method="POST">
+                <!-- Email Field -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    />
+                </div>
+
+                <!-- First Name Field -->
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="firstName"
+                        name="firstName"
+                        placeholder="Enter your first name"
+                        required
+                    />
+                </div>
+
+                <!-- Password Field -->
+                <div class="mb-3">
+                    <label for="password1" class="form-label">Password</label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="password1"
+                        name="password1"
+                        placeholder="Create a password"
+                        required
+                    />
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="mb-4">
+                    <label for="password2" class="form-label">Confirm Password</label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="password2"
+                        name="password2"
+                        placeholder="Confirm your password"
+                        required
+                    />
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary w-100 mb-3">Sign Up</button>
+            </form>
+
+            <!-- Social Media Sign Up (Optional) -->
+            <!-- <div class="text-center">
+                <p>Or sign up with:</p>
+                <button class="btn btn-outline-primary w-100 mb-2">Google</button>
+                <button class="btn btn-outline-dark w-100 mb-3">Facebook</button>
+            </div> -->
+
+            <!-- Terms and Conditions -->
+            <!-- <div class="text-center">
+                <p class="text-muted">
+                    By signing up, you agree to our <a href="#" class="text-primary">Terms & Conditions</a> and <a href="#" class="text-primary">Privacy Policy</a>.
+                </p>
+            </div> -->
+        </div>
     </div>
-    <div class="mb-3">
-      <label for="firstName" class="form-label">First Name</label>
-      <input
-        type="text"
-        class="form-control"
-        id="firstName"
-        name="firstName"
-        placeholder="Enter first name"
-      />
-    </div>
-    <div class="mb-3">
-      <label for="password1" class="form-label">Password</label>
-      <input
-        type="password"
-        class="form-control"
-        id="password1"
-        name="password1"
-        placeholder="Enter password"
-      />
-    </div>
-    <div class="mb-3">
-      <label for="password2" class="form-label">Password (Confirm)</label>
-      <input
-        type="password"
-        class="form-control"
-        id="password2"
-        name="password2"
-        placeholder="Confirm password"
-      />
-    </div>
-   
-    <br />    
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+</div>
 
 {% endblock %}

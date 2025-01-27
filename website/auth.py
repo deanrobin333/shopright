@@ -26,7 +26,7 @@ def login():
                 # Create a User object
                 user = User(email=user_data['email'], password=user_data['password'], _id=user_data['_id'])
                 login_user(user, remember=True)
-                return redirect(url_for('views.home'))
+                return redirect(url_for('views.carts'))
             else:
                 flash('Incorrect password, try again.', category='error')
         else:
@@ -80,4 +80,4 @@ def sign_up():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('auth.login'))
+    return redirect(url_for('views.home'))

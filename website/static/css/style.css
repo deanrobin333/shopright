@@ -2,3 +2,38 @@
     border-radius: 20px;
 }
 
+
+.feature-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: .75rem;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.card-body {
+    background-color: #f8f9fa;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+.card-img-top {
+    width: 150px;  /* Adjust the width as needed */
+    height: auto; /* Maintain the aspect ratio */
+    margin: 0 auto; /* Center the image */
+}

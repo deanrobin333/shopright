@@ -2,8 +2,112 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<!-- Displaying items-->
-<h1 align="center">Home</h1>
+
+<div class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold text-body-emphasis">ShopRight</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">
+            is a simple and efficient web application designed to help users create
+            and manage shopping carts, making shopping experiences more 
+            organized and cost-effective.
+        </p>
+        <div
+        class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"
+        >
+        {% if user.is_authenticated %}
+
+        <h2 class="text-primary">Welcome {{ user_data.first_name }}</h2>
+
+        {% else %}
+            <a href="/sign-up" class="text-primary">
+            <button
+                type="button"
+                class="btn btn-primary btn-lg px-4 me-sm-3"
+            >
+                Sign Up
+            </button>
+            </a>
+            <a href="/login" class="text-primary">
+            <button
+                type="button"
+                class="btn btn-outline-secondary btn-lg px-4"
+            >
+                Login
+            </button>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+    <div class="overflow-hidden" style="max-height: 30vh">
+        <div class="container px-5">
+            <img 
+                src="{{ url_for('static', filename='images/shopping-carts.jpg') }}"
+                alt="Carts"
+                class="img-fluid border rounded-3 shadow-lg mb-4"
+                width="700"
+                height="500"
+                loading="lazy"
+            />            
+        </div>
+    </div>
+</div>
+
+<div class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 border-bottom">Why Shop alongside us?</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="feature col">
+            <div
+                class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3"
+            >
+            <img src="{{ url_for('static', filename='images/cart-check.svg') }}" class="card-img-top" alt="Cart icon" />
+            </div>
+            <h3 class="fs-2 text-body-emphasis">Live Shopping Basket</h3>
+            <p>
+                Add items to a shopping basket with prices and see the total
+                amount dynamically updated
+            </p>
+            <a href="#" class="icon-link">
+                See It Live
+                <img src="{{ url_for('static', filename='images/chevron-double-right.svg') }}" alt="View Cart" class="ms-2" style="width: 16px; height: 16px;">
+            </a>
+        </div>
+        <div class="feature col">
+            <div
+                class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3"
+            >
+            <img src="{{ url_for('static', filename='images/cart-check.svg') }}" class="card-img-top" alt="Cart icon" />
+            </div>
+            <h3 class="fs-2 text-body-emphasis">Cost Management</h3>
+            <p>
+                Keep track of your shopping budget with a real-time tally of costs..
+            </p>
+            <a href="#" class="icon-link">
+                Save Money
+                <img src="{{ url_for('static', filename='images/chevron-double-right.svg') }}" alt="View Cart" class="ms-2" style="width: 16px; height: 16px;">
+            </a>
+        </div>
+        <div class="feature col">
+            <div
+                class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3"
+            >
+            <img src="{{ url_for('static', filename='images/cart-check.svg') }}" class="card-img-top" alt="Cart icon" />
+            </div>
+            <h3 class="fs-2 text-body-emphasis">Personal Touch</h3>
+            <p>
+                At our core, we believe that shopping should be an
+                exciting and positive experience, not a stressful one.
+                By providing exceptional shopping tracking, we
+                hope to revolutionize the way people think about shopping
+                and provide a better, more personalized experience for
+                our customers.
+            </p>
+            <a href="#" class="icon-link">
+                Shop Right
+                <img src="{{ url_for('static', filename='images/chevron-double-right.svg') }}" alt="View Cart" class="ms-2" style="width: 16px; height: 16px;">
+            </a>
+        </div>
+    </div>
+</div>
 
 
 {% endblock %}

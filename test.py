@@ -11,7 +11,7 @@ from flask_login import login_required, current_user
 
 from . import mongo
 
-from .models import Cart, Item  # Import the Cart model
+from .models import Cart  # Import the Cart model
 
 from bson.objectid import ObjectId
 
@@ -20,9 +20,7 @@ views = Blueprint('views', __name__)
 
 @views.route('/')
 def home():
-    user_data = mongo.db.users.find_one({"_id": ObjectId(current_user.get_id())})
-
-    return render_template('home.html', user_data=user_data, user=current_user)
+    return render_template('home.html', user=current_user)
 
 # Route for the carts page
 @views.route('/carts')
@@ -67,7 +65,6 @@ def view_cart(cart_id):
     carts = user_data.get("carts", [])
     cart = next((cart for cart in carts if cart["_id"] == cart_id), None)
 
- 
     # Handle the case where the cart is not found
     if not cart:
         return "Cart not found", 404
@@ -87,7 +84,7 @@ def view_cart(cart_id):
             item_price = float(item_price)
 
             # Create a new Item object
-            new_item = Item(item_name, item_price).to_dict()
+            new_item = {"name": item_name, "price": item_price}
 
             # Append the new item to the cart's items
             cart['cart_items'].append(new_item)
@@ -112,43 +109,27 @@ def view_cart(cart_id):
     return render_template('view_cart.html', cart=cart, user=current_user)
 
 
-@views.route('/cart/<cart_id>/delete', methods=['POST'])
-@login_required
-def delete_item(cart_id):
-    # Get the current user's data
-    user_data = mongo.db.users.find_one({"_id": ObjectId(current_user.get_id())})
-    carts = user_data.get("carts", [])
+    <ul>
+        {% for item in cart.cart_items %}
+        <li>{{ item['name'] }} - ${{ item['price'] }}</li>
+        {% else %}
+        <li>No items in the cart yet!</li>
+        {% endfor %}
+    </ul>
 
-    # Find the cart by ID
-    cart = next((cart for cart in carts if cart["_id"] == cart_id), None)
-    if not cart:
-        return "Cart not found", 404
+    <li class="list-group-item">
+            <button type="button" class="btn btn-success" >{{ item['name'] }} - ${{ item['price'] }}
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </li>
 
-    # Get the item ID from the request body
-    item_id = request.json.get('item_id')
-    if not item_id:
-        return "Item ID is required", 400
 
-    # Find and remove the item from the cart
-    cart_items = cart.get('cart_items', [])
-    updated_items = [item for item in cart_items if item['_id'] != item_id]
-    if len(cart_items) == len(updated_items):
-        return "Item not found", 404
 
-    # Update the cart in the database
-    cart['cart_items'] = updated_items
-    cart['total'] = sum(item['price'] for item in updated_items)
-    mongo.db.users.update_one(
-        {"_id": ObjectId(current_user.get_id()), "carts._id": cart_id},
-        {
-            "$set": {
-                "carts.$.cart_items": cart['cart_items'],
-                "carts.$.total": cart['total']
-            }
-        }
-    )
-    # Flash a success message
-    flash('Item has been successfully deleted!', category='success')
 
-    return "Item deleted successfully", 200
 
+    <div class="container-sm">
+        <div class="row items-list">
+            <div class="col-2 item-list">{{ item['name'] }}</div>          
+            <div class="col item-list">ksh{{ item['price'] }}</div>          
+        </div>
+      </div>

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Your Carts{% endblock %}
+
+{% block content %}
+
+<!-- Page Heading -->
+<h1 class="text-center my-4">Your Shopping Carts</h1>
+
+<!-- Create Cart Button -->
+<div class="d-grid gap-2 mb-4">
+    <a href="{{ url_for('views.create_cart') }}">
+        <button class="btn btn-primary btn-lg" type="button">
+            Create New Cart
+        </button>
+    </a>    
+</div>
+
+<!-- Cart Listings -->
+<div class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 mb-4 border-bottom text-center">My Carts</h2>
+
+    <!-- Loop through carts -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for cart in carts %}
+            <div class="col">
+                <div class="card shadow-sm border-light rounded-3">
+                    <img src="{{ url_for('static', filename='images/cart-check.svg') }}" class="card-img-top" alt="Cart icon">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary">{{ cart.title }}</h3>
+                        <ul class="list-unstyled">
+                            <li><strong>Date:</strong> {{ cart.date }}</li>
+                            <li><strong>Supermarket:</strong> {{ cart.supermarket }}</li>
+                            <li><strong>Total:</strong> ksh {{ cart.total }}</li>
+                        </ul>
+                        <a href="{{ url_for('views.view_cart', cart_id=cart['_id']) }}" class="btn btn-outline-primary d-flex align-items-center">
+                            <span>View Cart</span>
+                            <img src="{{ url_for('static', filename='images/chevron-double-right.svg') }}" alt="View Cart" class="ms-2" style="width: 16px; height: 16px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

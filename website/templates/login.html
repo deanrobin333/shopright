@@ -2,31 +2,52 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
+<!-- Main container for centering the form -->
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg" style="width: 400px;">
+        <div class="card-body p-4">
+            <!-- Card Title -->
+            <h3 class="text-center mb-4">Login</h3>
 
-<form method="POST">
-    <h3 align="center">Login</h3>
-    <div class="form-group">
-      <label for="email">Email Address</label>
-      <input
-        type="email"
-        class="form-control"
-        id="email"
-        name="email"
-        placeholder="Enter email"
-      />
+            <!-- Form Start -->
+            <form method="POST">
+                <!-- Email Field -->
+                <div class="form-group mb-3">
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        placeholder="Enter email"
+                        required
+                    />
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group mb-4">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="Enter password"
+                        required
+                    />
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+
+            <!-- Additional Links -->
+            <div class="text-center mt-3">
+                <p>Don't have an account? <a href="/sign-up" class="text-primary">Sign Up</a></p>
+                <!-- <p><a href="/forgot-password" class="text-secondary">Forgot Password?</a></p> -->
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        type="password"
-        class="form-control"
-        id="password"
-        name="password"
-        placeholder="Enter password"
-      />
-    </div>
-    <br />
-    <button type="submit" class="btn btn-primary">Login</button>
-  </form>
+</div>
 
 {% endblock %}

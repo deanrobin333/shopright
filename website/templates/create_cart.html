@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}Create New Cart{% endblock %}
+
+{% block content %}
+
+<!-- Header Section -->
+<div class="container my-5">
+    <h1 class="text-center mb-4">Create New Cart</h1>
+
+    <!-- Form Section -->
+    <form method="POST">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+                <!-- Cart Title -->
+                <div class="mb-4">
+                    <label for="title" class="form-label fs-5">Cart Title</label>
+                    <input type="text" id="title" name="title" class="form-control" placeholder="Enter your cart title" required>
+                </div>
+
+                <!-- Supermarket -->
+                <div class="mb-4">
+                    <label for="supermarket" class="form-label fs-5">Supermarket</label>
+                    <input type="text" id="supermarket" name="supermarket" class="form-control" placeholder="Enter supermarket name" required>
+                </div>
+
+                <!-- Date -->
+                <div class="mb-4">
+                    <label for="date" class="form-label fs-5">Date</label>
+                    <input type="date" id="date" name="date" class="form-control" required>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg">Create Cart</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<!-- Script to set default date to today -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+        document.getElementById('date').value = today; // Set the value of the date input
+    });
+</script>
+
+{% endblock %}
