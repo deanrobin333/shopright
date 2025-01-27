@@ -37,7 +37,7 @@ This project is built using **Flask** for the backend, **Bootstrap** for styling
 
 ## Demo
 
-A live demo of ShopRight will be available soon. For now, feel free to clone the repository and run the app locally using the [Installation](#installation) instructions below.
+A live demo of ShopRight is available at https://shopright.dynofin.com/. Feel free to clone the repository and run the app locally using the [Installation](#installation) instructions below.
 
 ---
 
@@ -62,8 +62,10 @@ source venv/bin/activate  # For Windows use `venv\Scripts\activate`
 `pip install -r requirements.txt`
 
 ### 4. Set up environment variables
-Create a .env file in the root directory and add any necessary environment variables
+Create a .env file in the root directory and add any necessary environment variables, and specify database
 
+- for mongodb
+    O_URI=mongodb://localhost:27017/<database_name>
 - have the variable `SECRET_KEY='some random jumbled text'
     - replace "some random jumbled text" with your own jumbled text.
 
@@ -93,21 +95,30 @@ Once the server is running, open your browser and go to:
 ## Project Structure
 
 ```
-shopright/
-│
-├── app.py                   # Flask application entry point
-├── static/                  # Contains all static files (CSS, JS, Images)
-│   ├── css/
-│   ├── js/
-│   └── img/
-├── templates/               # HTML templates
-│   ├── base.html
-│   └── index.html
-│   └── login.html
-│   └── signup.html
-│   └── logout.html
-├── requirements.txt         # List of dependencies
-└── README.md                # Project documentation
+.
+├── README.md
+├── app.py                      # Flask application entry point
+├── config.py
+├── requirements.txt            # List of dependencies
+└── website
+    ├── __init__.py
+    ├── auth.py
+    ├── models.py
+    ├── static                 # Contains all static files (CSS, JS, Images)
+    │   ├── css
+    │   │   └── style.css
+    │   ├── images
+    │   └── js
+    │       └── index.js
+    ├── templates
+    │   ├── base.html
+    │   ├── carts.html
+    │   ├── create_cart.html
+    │   ├── home.html
+    │   ├── login.html
+    │   ├── sign_up.html
+    │   └── view_cart.html
+    └── views.py
 ```
 
 ## Contributing
