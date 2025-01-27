@@ -87,9 +87,9 @@ Once the server is running, open your browser and go to:
 
 ## Technologies Used
 
-- **Backend**: Flask (Python)
+- **Backend**: Flask (Python), Gunicorn Server
 - **Frontend**: Bootstrap, HTML5, CSS3, JavaScript
-- **Database**: MySQL (for robust data storage)
+- **Database**: MongoDB (easy to get up and running)
 - **Version Control**: Git and GitHub
 
 ## Project Structure
