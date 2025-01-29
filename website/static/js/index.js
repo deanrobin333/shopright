@@ -22,7 +22,7 @@ $(document).ready(function () {
   });
 });
 
-
+// deleting not items
 document.querySelectorAll('.delete-item').forEach(button => {
     button.addEventListener('click', async (event) => {
         const cartId = button.getAttribute('data-cart-id');
@@ -56,6 +56,7 @@ document.querySelectorAll('.delete-item').forEach(button => {
 });
 
 
+// remove flash message after some time
 document.addEventListener('DOMContentLoaded', function() {
     // Select the flash message container
     const flashMessage = document.querySelector('#flash-message');
@@ -69,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// set today's date on creating cart
 document.addEventListener("DOMContentLoaded", function() {
     const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
     document.getElementById('date').value = today; // Set the value of the date input
