@@ -70,7 +70,14 @@ Create a .env file in the root directory and add any necessary environment varia
     - replace "some random jumbled text" with your own jumbled text.
 
 ### 5. Run the application
-`flask run`
+- `flask run`
+- To run the app using flask
+    - In your project app, using your python environment
+    - `python3 ./app.py`
+- To run the app using gunicorn
+    - In your project app `gunicorn -b server_ip_address:port_number -w 4 app:app`
+        - If on server -- `<server_ip_address>:<port_number>`
+    - if you are running on local host - `gunicorn -b localhost:8000 -w 4 app:app`
 
 ### 6. Open in your browser
 Once the server is running, open your browser and go to:
@@ -135,6 +142,18 @@ Once the server is running, open your browser and go to:
 ## License
 
 ShopRight is open-source and available under the MIT License.
+
+### Summary
+
+- **Permissions**: 
+  - Commercial use
+  - Modification
+  - Distribution
+  - Private use
+
+- **Limitations**: 
+  - No liability
+  - No warranty
 
 
 ## Contact
