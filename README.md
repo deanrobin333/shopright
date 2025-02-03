@@ -62,8 +62,8 @@ source venv/bin/activate  # For Windows use `venv\Scripts\activate`
 `pip install -r requirements.txt`
 
 ### 4. Set up environment variables (VERY IMPORTANT)
-Create a .env file in the root directory and add any necessary environment variables, and specify database
-- Example
+Create a `.env` file in the root directory and add any necessary environment variables, and specify database
+- Example -
     ```
     MONGO_URI=mongodb://localhost:27017/mydb
     SECRET_KEY='some random jumbled text'
