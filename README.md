@@ -52,7 +52,7 @@ git clone https://github.com/deanrobin333/shopright.git
 cd shopright
 ```
 
-### 2. Create a virtual environment (optional but recommended)
+### 2. Create a virtual environment (NECESSARY)
 ```
 python3 -m venv venv
 source venv/bin/activate  # For Windows use `venv\Scripts\activate`
@@ -61,12 +61,14 @@ source venv/bin/activate  # For Windows use `venv\Scripts\activate`
 ### 3. Install the required dependencies
 `pip install -r requirements.txt`
 
-### 4. Set up environment variables
+### 4. Set up environment variables (VERY IMPORTANT)
 Create a .env file in the root directory and add any necessary environment variables, and specify database
+- Example
+    ```
+    MONGO_URI=mongodb://localhost:27017/mydb
+    SECRET_KEY='some random jumbled text'
+    ```
 
-- for mongodb
-    O_URI=mongodb://localhost:27017/<database_name>
-- have the variable `SECRET_KEY='some random jumbled text'
     - replace "some random jumbled text" with your own jumbled text.
 
 ### 5. Run the application
