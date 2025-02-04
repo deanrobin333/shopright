@@ -24,6 +24,19 @@
 
             <!-- Items & Prices Container -->
             <div class="col-md-6 items-prices-container">
+                <div class="container">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages if category == 'deleted' %}
+                                <div class="alert alert-danger alert-dismissable fade show" 
+                                     role="alert" id="flash-message" data-bs-dismiss="alert">
+                                    {{ message }}                                        
+                                </div>                                
+                            {% endfor %}            
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                
                 <!-- HEADER ROW -->
                 <div class="header-row bg-primary">
                     <div class="item-header">Items</div>
