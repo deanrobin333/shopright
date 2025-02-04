@@ -71,6 +71,18 @@
                 {% else %}
                     <p>No items in the cart yet!</p>
                 {% endif %}
+                <div class="total-row bg-danger">
+                    <div class="total-items">
+                        <span><h5>Total Ksh:</h5></span>
+                    </div>
+                    <div class="separator">|</div>
+                    <div class="total-price">
+                        <span><h5> {{ cart.total | format_number }}</h5></span>
+                    </div>
+                    <div class="separator"></div>
+                    <!-- <div class="delete-btn">                        
+                    </div> -->
+                </div>
             </div>
         </div>
     </div>       

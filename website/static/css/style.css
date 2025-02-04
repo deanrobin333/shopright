@@ -74,10 +74,24 @@ ul li {
     color: white
 }
 
+/* TOTAL last ROW */
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    border-bottom: 1px solid #ddd;
+    /* background: #f8f9fa; */
+    color: white
+}
+
 /* Column Flex Sizing */
 .item-header, .item-name { flex: 2; text-align: left; }
 .price-header, .item-price { flex: 1; text-align: center; }
 .action-header, .delete-btn { flex: 0.5; text-align: right; }
+
+.total-items { flex: 1.95; text-align: center; }
+.total-price { flex: 1.55; text-align: center; }
 
 /* Separator */
 .separator {
