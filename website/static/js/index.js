@@ -62,3 +62,35 @@ document.addEventListener("DOMContentLoaded", function() {
     const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
     document.getElementById('date').value = today; // Set the value of the date input
 });
+
+
+// Delete individual carts
+document.querySelectorAll('.delete-cart').forEach(button => {
+    button.addEventListener('click', async (event) => {
+        const cartId = button.getAttribute('data-cart-id');
+
+        if (cartId) {
+            if (confirm("Are you sure you want to delete this cart?")) {
+                try {
+                    const response = await fetch(`/cart/${cartId}/delete-cart`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        location.reload(); // Reload the page after deletion
+                    } else {
+                        alert('Failed to delete cart.');
+                    }
+                } catch (error) {
+                    console.error('Error deleting cart:', error);
+                    alert('An error occurred.');
+                }
+            }
+        } else {
+            console.error('Missing cart ID.');
+        }
+    });
+});

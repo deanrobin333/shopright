@@ -15,10 +15,23 @@
     </a>    
 </div>
 
-<!-- Cart Listings -->
 <div class="container px-4 py-5" id="featured-3">
     <h2 class="pb-2 mb-4 border-bottom text-center">My Carts</h2>
-
+    
+    <!-- flash message for deleted cart -->
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages if category == 'deleted' %}
+                    <div class="alert alert-danger alert-dismissable fade show" 
+                         role="alert" id="flash-message" data-bs-dismiss="alert">
+                        {{ message }}                                        
+                    </div>                                
+                {% endfor %}            
+            {% endif %}
+        {% endwith %}
+    </div>
+<!-- Cart Listings -->
     <!-- Loop through carts -->
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {% for cart in carts | reverse %}
@@ -37,6 +50,9 @@
                             <img src="{{ url_for('static', filename='images/chevron-double-right.svg') }}" alt="View Cart" class="ms-2" style="width: 16px; height: 16px;">
                         </a>
                     </div>
+                    <button class="btn btn-danger delete-cart" data-cart-id="{{ cart['_id'] }}">
+                        Delete Cart
+                    </button>
                 </div>
             </div>
         {% endfor %}

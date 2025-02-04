@@ -154,3 +154,31 @@ def delete_item(cart_id):
     flash('Item has been successfully deleted!', category='deleted')
 
     return "Item deleted successfully", 200
+
+
+@views.route('/cart/<cart_id>/delete-cart', methods=['POST'])
+@login_required
+def delete_cart(cart_id):
+    # Get the current user's data
+    user_data = mongo.db.users.find_one({"_id": ObjectId(current_user.get_id())})
+
+    if not user_data:
+        return "User not found", 404
+
+    # Get the user's carts
+    carts = user_data.get("carts", [])
+
+    # Check if the cart exists
+    updated_carts = [cart for cart in carts if cart["_id"] != cart_id]
+
+    if len(updated_carts) == len(carts):
+        return "Cart not found", 404
+
+    # Update the user's carts in the database
+    mongo.db.users.update_one(
+        {"_id": ObjectId(current_user.get_id())},
+        {"$set": {"carts": updated_carts}}
+    )
+
+    flash('Cart has been successfully deleted!', category='deleted')
+    return "Cart deleted successfully", 200
