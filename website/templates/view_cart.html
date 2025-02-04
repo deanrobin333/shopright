@@ -7,8 +7,8 @@
     
     <div class="container mt-4">
         <div class="row">
-            <!-- First Column (Single Row with Form) -->
-            <div class="col-md-4 bg-light p-3">
+            <!-- First Column (Form) - Fixed Size -->
+            <div class="col-md-4 form-container p-3">
                 <form method="POST">
                     <label for="item_name">Item Name:</label><br>
                     <input type="text" id="item_name" name="item_name" class="form-control mb-2" required><br>
@@ -17,15 +17,35 @@
                     <input type="submit" value="Add Item" class="btn btn-primary">
                 </form>
             </div>
-            <div class="col-md-2"></div>
-            <!-- Second Column (Item Names with Delete Buttons) -->
-            <div class="col-md-3 bg-secondary text-white" >
-                <div class="p-2 d-flex flex-column" style="height: 100%;">
-                    <h5>Items</h5>
-                    {% if cart.cart_items %}
-                        {% for item in cart.cart_items %}
-                            <div class="d-flex justify-content-between align-items-center border-bottom py-1 flex-grow-1">
+
+            <!-- Spacer Column (Ensures space remains on small screens) -->
+            <div class="col-md-2 d-none d-md-block"></div>
+            <div class="d-md-none mb-3"></div> <!-- Adds space only on small screens -->
+
+            <!-- Items & Prices Container -->
+            <div class="col-md-6 items-prices-container">
+                <!-- HEADER ROW -->
+                <div class="header-row bg-primary">
+                    <div class="item-header">Items</div>
+                    <div class="separator">|</div>
+                    <div class="price-header">Prices</div>
+                    <div class="separator">|</div>
+                    <div class="action-header">Del</div>
+                </div>
+
+                <!-- ITEM LIST -->
+                {% if cart.cart_items %}
+                    {% for item in cart.cart_items %}
+                        <div class="item-price-row bg-success">
+                            <div class="item-name">
                                 <span>{{ item['name'] }}</span>
+                            </div>
+                            <div class="separator">|</div>
+                            <div class="item-price">
+                                <span>Ksh {{ item['price'] }}</span>
+                            </div>
+                            <div class="separator">|</div>
+                            <div class="delete-btn">
                                 <button 
                                     class="btn btn-danger btn-sm delete-item" 
                                     data-cart-id="{{ cart['_id'] }}" 
@@ -33,29 +53,14 @@
                                     x
                                 </button>
                             </div>
-                        {% endfor %}
-                    {% else %}
-                        <p>No items in the cart yet!</p>
-                    {% endif %}
-                </div>
-            </div>
-    
-            <!-- Third Column (Item Prices with Delete Buttons) -->
-            <div class="col-md-3 bg-primary text-white" style="max-width: 200px;">
-                <div class="p-2 d-flex flex-column" style="height: 100%;">
-                    <h5>Prices</h5>
-                    {% if cart.cart_items %}
-                        {% for item in cart.cart_items %}
-                            <div class="d-flex justify-content-between align-items-center border-bottom py-1 flex-grow-1">
-                                <span>ksh {{ item['price'] }}</span>
-                                                                
-                            </div>
-                        {% endfor %}
-                    {% else %}
-                        <p>No prices available!</p>
-                    {% endif %}
-                </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No items in the cart yet!</p>
+                {% endif %}
             </div>
         </div>
     </div>       
+
+    
 {% endblock %}

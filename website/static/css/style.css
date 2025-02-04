@@ -37,3 +37,60 @@ ul li {
     height: auto; /* Maintain the aspect ratio */
     margin: 0 auto; /* Center the image */
 }
+
+/* Ensure the form remains constant in size */
+.form-container {
+    height: 300px;  /* Adjust as needed */
+    overflow: hidden;
+}
+
+/* Container for items and prices */
+.items-prices-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* HEADER ROW (Align with Items) */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    font-weight: bold;
+    background: #333;
+    color: white;
+}
+
+/* ITEM ROWS */
+.item-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    border-bottom: 1px solid #ddd;
+    /* background: #f8f9fa; */
+    color: white
+}
+
+/* Column Flex Sizing */
+.item-header, .item-name { flex: 2; text-align: left; }
+.price-header, .item-price { flex: 1; text-align: center; }
+.action-header, .delete-btn { flex: 0.5; text-align: right; }
+
+/* Separator */
+.separator {
+    padding: 0 10px;
+    font-weight: bold;
+    color: gray;
+}
+
+/* Responsive: Stack Items & Prices on Small Screens */
+@media (max-width: 375px) {
+    .items-prices-container {
+        flex-direction: column;
+    }
+    .header-row, .item-price-row {
+        flex-direction: row;
+    }
+}
