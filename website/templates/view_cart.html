@@ -3,7 +3,7 @@
 
 {% block content %}
     <h1 align="center">{{ cart.title }}</h1>
-    <h2 align="center">Total: Ksh {{ "{:,.2f}".format(cart.total) }}</h2>
+    <h2 align="center">Total: Ksh {{ cart.total | format_number }}</h2>
     
     <div class="container mt-4">
         <div class="row">
@@ -55,7 +55,7 @@
                             </div>
                             <div class="separator">|</div>
                             <div class="item-price">
-                                <span>Ksh {{ "{:,}".format(item['price']) }}</span>
+                                <span>{{ item['price'] | format_number }}</span>
                             </div>
                             <div class="separator">|</div>
                             <div class="delete-btn">

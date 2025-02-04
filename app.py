@@ -8,6 +8,22 @@ from website import create_app
 
 app = create_app()
 
+# Custom filter to format numbers with commas
+@app.template_filter('format_number')
+def format_number(value):
+    try:
+        if value % 1 == 0:  # Check if it's a whole number
+            return f"{value:,.0f}"  # Format with comma, no decimals
+        else:
+            return f"{value:,.2f}"  # Format with comma and two decimal places
+        # similar to directly using format filter in html code
+        # <h2 align="center">Total: Ksh {{ "{:,}".format(cart.total) }}</h2>
+    except (ValueError, TypeError):
+        return value  # Return as-is if not a valid number
+
+# manually adds the function to Flask's Jinja environment.
+app.jinja_env.filters['format_number'] = format_number
+
 ''' if experimenting with flask server, before switching to gunicorn'''
 #if __name__ == '__main__':
     #app.run(host='<server_ip>', port=3333)
