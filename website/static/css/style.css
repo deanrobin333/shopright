@@ -24,9 +24,10 @@
     color: #007bff;
 }
 
-.card-body {
+/* removed to work well in dark mode for cart items */
+/* .card-body {
     background-color: #f8f9fa;
-}
+} */
 
 ul li {
     margin-bottom: 8px;

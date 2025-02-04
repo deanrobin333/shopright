@@ -151,4 +151,3 @@ def delete_item(cart_id):
     flash('Item has been successfully deleted!', category='success')
 
     return "Item deleted successfully", 200
-
