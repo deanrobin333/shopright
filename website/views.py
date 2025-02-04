@@ -108,6 +108,9 @@ def view_cart(cart_id):
         except ValueError:
             return "Invalid price value", 400
 
+        # Redirect to prevent form resubmission issue and solve immediate delete
+        return redirect(url_for('views.view_cart', cart_id=cart_id))
+
     # Render the template with the updated cart
     return render_template('view_cart.html', cart=cart, user=current_user)
 
