@@ -30,7 +30,7 @@
                         <ul class="list-unstyled">
                             <li><strong>Date:</strong> {{ cart.date }}</li>
                             <li><strong>Supermarket:</strong> {{ cart.supermarket }}</li>
-                            <li><strong>Total:</strong> ksh {{ cart.total }}</li>
+                            <li><strong>Total:</strong> ksh {{ cart.total | format_number }}</li>
                         </ul>
                         <a href="{{ url_for('views.view_cart', cart_id=cart['_id']) }}" class="btn btn-outline-primary d-flex align-items-center">
                             <span>View Cart</span>
