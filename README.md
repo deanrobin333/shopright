@@ -37,7 +37,7 @@ This project is built using **Flask** for the backend, **Bootstrap** for styling
 
 ## Demo
 
-A live demo of ShopRight is available at https://shopright.dynofin.com/. Feel free to clone the repository and run the app locally using the [Installation](#installation) instructions below.
+A live demo of ShopRight is available at https://shopright.deanovo.tech/. Feel free to clone the repository and run the app locally using the [Installation](#installation) instructions below.
 
 ---
 
