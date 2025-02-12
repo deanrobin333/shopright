@@ -1,6 +1,11 @@
 # ShopRight
 
 **Tagline**: *Shop smart, save big.*
+<p align="center">
+  <img src="./website/static/images/carts_page.png" width="45%" />
+  <img src="./website/static/images/groceries_page.png" width="45%" />
+</p>
+
 
 ## Overview
 
